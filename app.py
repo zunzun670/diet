@@ -1,28 +1,39 @@
 import streamlit as st
-import random
 
 # アプリのタイトル
-st.title("ぴよぴよの素敵な1年後の姿への道🐣")
+st.title("ぴよぴよの1年後の素敵な姿への道🐣")
 
-# データの準備
-recommendations = {
-    "朝ごはんのオススメ": ["納豆🍚", "ゆで卵🥚", "ギリシャヨーグルト🥣", "オートミール粥🌾"],
-    "太もも引き締め": ["ワイドスクワット 15回", "内ももピタッと閉じ（1分）", "大股歩き"],
-    "二の腕シェイプ": ["後ろに腕を引いて歩く", "壁プッシュアップ", "デスク押し（5秒）"]
-}
-
-# ①プルダウンリスト（セレクトボックス）
+# 1. プルダウンリスト（セレクトボックス）
+# 最初の選択肢を空にするか、案内文にします
 option = st.selectbox(
-    '知りたいアドバイスを選んでね',
-    list(recommendations.keys())
+    'メニューを選んでね',
+    ['--', 
+     '朝ごはんのオススメ', 
+     '太もも引き締め', 
+     '二の腕シェイプ', 
+     'お腹凹ませ']
 )
 
-# ②下部の枠内に表示
-st.subheader("今日のアドバイス：")
-with st.container(border=True): # 枠線を表示
-    # 選択されたリストからランダムで1つ表示（または全部表示も可能）
-    result = random.choice(recommendations[option])
-    st.write(f"### {result}")
+# 2. 下部の表示エリア（枠線付き）
+st.write("---") # 区切り線
 
-# 応援メッセージ
-st.info("50kg達成まで、一歩ずつ進みましょう！")
+# 枠（container）の中に結果を表示
+with st.container(border=True):
+    if option == '朝ごはんのオススメ':
+        st.write("### 納豆🍚")
+        st.caption("タンパク質で代謝のスイッチをオン！")
+    
+    elif option == '太もも引き締め':
+        st.write("### 内ももピタッと閉じ（1分）")
+        st.caption("デスクワーク中もこっそりトレーニング！")
+        
+    elif option == '二の腕シェイプ':
+        st.write("### 腕を後ろに引いて歩く")
+        st.caption("通勤の1万歩が二の腕痩せタイムに！")
+        
+    elif option == 'お腹凹ませ':
+        st.write("### おへそを背骨に近づける（ドローイン）")
+        st.caption("信号待ちの間にこっそりお腹を凹ませて！")
+        
+    else:
+        st.write("メニューを選んでください👆")
