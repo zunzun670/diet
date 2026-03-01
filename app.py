@@ -37,7 +37,7 @@ with st.container(border=True):
         st.caption("バランス良く食べて、午後のエネルギーをチャージ！")
 
     elif option == '🍚お昼ごはん（お休み）':
-　　　　st.write("## 🍲 豆腐と鶏ひき肉の『とろとろ中華蒸し』")
+　　　　 st.write("## 🍲 豆腐と鶏ひき肉の『とろとろ中華蒸し』")
         st.write("### 【材料】")
         st.write("- 豆腐：1丁（300g前後）")
         st.write("- 鶏ひき肉（胸肉）：50g程度")
